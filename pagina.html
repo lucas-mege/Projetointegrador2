@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sistema de Gestão de Fornecedores">
+    <title>Gestão de Fornecedores</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Gestão de Fornecedores</h1>
+            <ul>
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Fornecedores</a></li>
+                <li><a href="#">Relatórios</a></li>
+                <li><a href="#">Ajuda</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="form-section">
+            <h2>Cadastro de Fornecedores</h2>
+            <form id="supplierForm">
+                <label for="supplierName">Nome do Fornecedor:</label>
+                <input type="text" id="supplierName" placeholder="Ex.: Empresa X" required>
+
+                <label for="requestDate">Data da Abertura da Requisição:</label>
+                <input type="date" id="requestDate" required>
+
+                <label for="supplierCNPJ">CNPJ:</label>
+                <input type="text" id="supplierCNPJ" placeholder="00.000.000/0000-00" required>
+
+                <label for="serviceStartDate">Data de Início da Prestação de Serviço:</label>
+                <input type="date" id="serviceStartDate" required>
+
+                <label for="justification">Justificativa da Contratação:</label>
+                <textarea id="justification" placeholder="Descreva a justificativa" required></textarea>
+
+                <label for="totalValue">Valor Total da Contratação:</label>
+                <input type="number" id="totalValue" placeholder="Ex.: 50000" required>
+
+                <label for="additionalFiles">Arquivos Adicionais:</label>
+                <input type="file" id="additionalFiles">
+
+                <button type="submit">Cadastrar Fornecedor</button>
+            </form>
+        </section>
+
+        <section class="supplier-list">
+            <h2>Lista de Fornecedores</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome do Fornecedor</th>
+                        <th>CNPJ</th>
+                        <th>Data de Início</th>
+                        <th>Valor</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="supplierTable">
+                    <!-- Dados serão inseridos dinamicamente -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Gestão de Fornecedores. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
