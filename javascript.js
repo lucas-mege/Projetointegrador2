@@ -1,3 +1,10 @@
+// Alternar tema
+document.getElementById('theme-toggle').addEventListener('click', function () {
+    document.body.classList.toggle('light-theme');
+    document.body.classList.toggle('dark-theme');
+});
+
+// Submeter formulário de fornecedor
 document.getElementById('supplierForm').addEventListener('submit', async function (e) {
     e.preventDefault();
 
@@ -38,6 +45,7 @@ document.getElementById('supplierForm').addEventListener('submit', async functio
     }
 });
 
+// Carregar fornecedores
 async function loadSuppliers() {
     try {
         const response = await fetch('http://localhost:5000/api/suppliers');
@@ -49,6 +57,7 @@ async function loadSuppliers() {
     }
 }
 
+// Adicionar fornecedor à tabela
 function addSupplierToTable(supplier) {
     const supplierTable = document.getElementById('supplierTable');
     const newRow = supplierTable.insertRow();
@@ -79,4 +88,5 @@ function addSupplierToTable(supplier) {
     });
 }
 
+// Carregar fornecedores ao iniciar
 loadSuppliers();

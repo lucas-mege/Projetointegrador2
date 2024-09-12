@@ -1,3 +1,6 @@
+/* Importing fonts */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -5,22 +8,38 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #1c1c1c;
-    color: #e0e0e0;
+    font-family: 'Quicksand', sans-serif;
     line-height: 1.6;
 }
 
-header {
-    background-color: #2b2b2b;
+body.dark-theme {
+    background-color: #1c1c1c;
     color: #e0e0e0;
+}
+
+body.light-theme {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+header {
+    background-color: #0C3660; /* Ogun */
+    color: #FFFFFF; /* Oxála */
     padding: 15px 20px;
     text-align: center;
+}
+
+header #logo {
+    width: 200px;
+    height: auto; 
+    display: block;
+    margin: 0 auto 10px;
 }
 
 header h1 {
     margin: 0;
     font-size: 1.8rem;
+    font-family: 'Quicksand', sans-serif;
 }
 
 nav ul {
@@ -45,6 +64,26 @@ nav ul li a:focus {
     outline: 2px solid #a0a0a0;
 }
 
+#theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #E5C230; /* Oxum */
+    color: #1c1c1c;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    z-index: 1000;
+    border-radius: 20px;
+}
+
+#theme-toggle:hover,
+#theme-toggle:focus {
+    background-color: #C65E42;
+    outline: none;
+}
+
 main {
     padding: 20px;
     max-width: 900px;
@@ -54,7 +93,8 @@ main {
 h2 {
     font-size: 1.5rem;
     margin-bottom: 15px;
-    color: #9fc5e8;
+    color: #A33A19; /* Oyá */
+    font-family: 'Quicksand', sans-serif;
 }
 
 form {
@@ -90,8 +130,8 @@ form textarea:focus {
 }
 
 form button {
-    background-color: #4a90e2;
-    color: #f0f0f0;
+    background-color: #E5C230; /* Oxum */
+    color: #1c1c1c;
     border: none;
     cursor: pointer;
     font-size: 1rem;
@@ -99,7 +139,7 @@ form button {
 
 form button:hover,
 form button:focus {
-    background-color: #357ab8;
+    background-color: #C65E42;
     outline: none;
 }
 
@@ -123,7 +163,7 @@ table th {
 
 button.view-btn,
 button.delete-btn {
-    background-color: #4a90e2;
+    background-color: #3672A3;
     color: #f0f0f0;
     border: none;
     padding: 5px 10px;

@@ -6,10 +6,13 @@
     <meta name="description" content="Sistema de Gestão de Fornecedores">
     <title>Gestão de Fornecedores</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+  
 </head>
-<body>
+<body class="dark-theme">
     <header>
         <nav>
+            <img src="src/img/logo.png" alt="Logo da ONG" id="logo">
             <h1>Gestão de Fornecedores</h1>
             <ul>
                 <li><a href="#">Início</a></li>
@@ -64,7 +67,6 @@
                     </tr>
                 </thead>
                 <tbody id="supplierTable">
-                    <!-- Dados serão inseridos dinamicamente -->
                 </tbody>
             </table>
         </section>
@@ -73,6 +75,8 @@
     <footer>
         <p>© 2024 Gestão de Fornecedores. Todos os direitos reservados.</p>
     </footer>
+
+    <button id="theme-toggle">Alternar Fundo</button>
 
     <script src="script.js"></script>
 </body>
