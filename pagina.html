@@ -6,10 +6,13 @@
     <meta name="description" content="Sistema de Gestão de Fornecedores">
     <title>Gestão de Fornecedores</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+  
 </head>
-<body>
+<body class="dark-theme">
     <header>
         <nav>
+            <img src="src/img/logo.png" alt="Logo da ONG" id="logo">
             <h1>Gestão de Fornecedores</h1>
             <ul>
                 <li><a href="#">Início</a></li>
@@ -21,32 +24,34 @@
     </header>
 
     <main>
-        <section class="form-section">
-            <h2>Cadastro de Fornecedores</h2>
-            <form id="supplierForm">
+        <section class="form-section" aria-labelledby="form-heading">
+            <h2 id="form-heading">Cadastro de Fornecedores</h2>
+            <form id="supplierForm" aria-describedby="error-message">
                 <label for="supplierName">Nome do Fornecedor:</label>
-                <input type="text" id="supplierName" placeholder="Ex.: Empresa X" required>
+                <input type="text" id="supplierName" name="supplierName" placeholder="Ex.: Empresa X" required>
 
                 <label for="requestDate">Data da Abertura da Requisição:</label>
-                <input type="date" id="requestDate" required>
+                <input type="date" id="requestDate" name="requestDate" required>
 
                 <label for="supplierCNPJ">CNPJ:</label>
-                <input type="text" id="supplierCNPJ" placeholder="00.000.000/0000-00" required>
+                <input type="text" id="supplierCNPJ" name="supplierCNPJ" placeholder="00.000.000/0000-00" required>
 
                 <label for="serviceStartDate">Data de Início da Prestação de Serviço:</label>
-                <input type="date" id="serviceStartDate" required>
+                <input type="date" id="serviceStartDate" name="serviceStartDate" required>
 
                 <label for="justification">Justificativa da Contratação:</label>
-                <textarea id="justification" placeholder="Descreva a justificativa" required></textarea>
+                <textarea id="justification" name="justification" placeholder="Descreva a justificativa" required></textarea>
 
                 <label for="totalValue">Valor Total da Contratação:</label>
-                <input type="number" id="totalValue" placeholder="Ex.: 50000" required>
+                <input type="number" id="totalValue" name="totalValue" placeholder="Ex.: 50000" required>
 
                 <label for="additionalFiles">Arquivos Adicionais:</label>
-                <input type="file" id="additionalFiles">
+                <input type="file" id="additionalFiles" name="additionalFiles">
 
                 <button type="submit">Cadastrar Fornecedor</button>
             </form>
+
+            <div id="error-message" role="alert" aria-live="assertive" class="hidden"></div>
         </section>
 
         <section class="supplier-list">
@@ -62,7 +67,6 @@
                     </tr>
                 </thead>
                 <tbody id="supplierTable">
-                    <!-- Dados serão inseridos dinamicamente -->
                 </tbody>
             </table>
         </section>
@@ -71,6 +75,8 @@
     <footer>
         <p>© 2024 Gestão de Fornecedores. Todos os direitos reservados.</p>
     </footer>
+
+    <button id="theme-toggle">Alternar Fundo</button>
 
     <script src="script.js"></script>
 </body>

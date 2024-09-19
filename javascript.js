@@ -1,3 +1,10 @@
+// Alternar tema
+document.getElementById('theme-toggle').addEventListener('click', function () {
+    document.body.classList.toggle('light-theme');
+    document.body.classList.toggle('dark-theme');
+});
+
+// Submeter formulário de fornecedor
 document.getElementById('supplierForm').addEventListener('submit', async function (e) {
     e.preventDefault();
 
@@ -8,8 +15,11 @@ document.getElementById('supplierForm').addEventListener('submit', async functio
         serviceStartDate: document.getElementById('serviceStartDate').value,
         justification: document.getElementById('justification').value,
         totalValue: document.getElementById('totalValue').value,
-        additionalFiles: document.getElementById('additionalFiles').value // Aqui você pode lidar com arquivos de maneira mais complexa
+        additionalFiles: document.getElementById('additionalFiles').value
     };
+
+    const errorMessage = document.getElementById('error-message');
+    errorMessage.classList.add('hidden'); // Esconde mensagem de erro inicial
 
     try {
         const response = await fetch('http://localhost:5000/api/suppliers', {
@@ -20,15 +30,22 @@ document.getElementById('supplierForm').addEventListener('submit', async functio
             body: JSON.stringify(supplierData)
         });
 
+        if (!response.ok) {
+            throw new Error('Erro no servidor.');
+        }
+
         const newSupplier = await response.json();
         addSupplierToTable(newSupplier);
 
         document.getElementById('supplierForm').reset();
     } catch (error) {
+        errorMessage.textContent = 'Erro ao cadastrar fornecedor: ' + error.message;
+        errorMessage.classList.remove('hidden');
         console.error('Erro ao cadastrar fornecedor:', error);
     }
 });
 
+// Carregar fornecedores
 async function loadSuppliers() {
     try {
         const response = await fetch('http://localhost:5000/api/suppliers');
@@ -40,6 +57,7 @@ async function loadSuppliers() {
     }
 }
 
+// Adicionar fornecedor à tabela
 function addSupplierToTable(supplier) {
     const supplierTable = document.getElementById('supplierTable');
     const newRow = supplierTable.insertRow();
@@ -50,27 +68,25 @@ function addSupplierToTable(supplier) {
         <td>${supplier.service_start_date}</td>
         <td>R$ ${parseFloat(supplier.total_value).toFixed(2)}</td>
         <td>
-            <button class="view-btn">Visualizar</button>
-            <button class="delete-btn" data-id="${supplier.id}">Excluir</button>
+            <button class="view-btn" data-id="${supplier.id}">Ver</button>
+            <button class="delete-btn" data-id="${supplier.id}" aria-label="Excluir fornecedor ${supplier.supplier_name}">Excluir</button>
         </td>
     `;
-}
 
-document.getElementById('supplierTable').addEventListener('click', async function (e) {
-    if (e.target.classList.contains('delete-btn')) {
-        const id = e.target.dataset.id;
+    newRow.querySelector('.delete-btn').addEventListener('click', async function () {
+        const supplierId = this.getAttribute('data-id');
 
         try {
-            await fetch(`http://localhost:5000/api/suppliers/${id}`, {
+            await fetch(`http://localhost:5000/api/suppliers/${supplierId}`, {
                 method: 'DELETE'
             });
 
-            e.target.closest('tr').remove();
+            supplierTable.deleteRow(newRow.rowIndex);
         } catch (error) {
             console.error('Erro ao excluir fornecedor:', error);
         }
-    }
-});
+    });
+}
 
-// Carregar fornecedores ao carregar a página
-window.onload = loadSuppliers;
+// Carregar fornecedores ao iniciar
+loadSuppliers();
