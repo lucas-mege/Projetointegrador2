@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lista de Fornecedores">
+    <title>Lista de Fornecedores</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+    <header>
+        <nav>
+            <img src="src/img/logo.png" alt="Logo da ONG" id="logo">
+            <h1>Lista de Fornecedores</h1>
+            <ul>
+                <li><a href="pagina.html">Início</a></li>
+                <li><a href="#">Fornecedores</a></li>
+                <li><a href="#">Relatórios</a></li>
+                <li><a href="#">Ajuda</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="supplier-list">
+            <h2>Fornecedores Cadastrados</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome do Fornecedor</th>
+                        <th>CNPJ</th>
+                        <th>Data de Início</th>
+                        <th>Valor</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="supplierTable">
+                    <!-- Lista de fornecedores será inserida aqui dinamicamente -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Gestão de Fornecedores. Todos os direitos reservados.</p>
+    </footer>
+
+    <button id="theme-toggle">Alternar Fundo</button>
+
+    <script src="javascript.js"></script>
+</body>
+</html>

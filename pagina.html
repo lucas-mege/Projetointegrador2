@@ -7,7 +7,6 @@
     <title>Gestão de Fornecedores</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
-  
 </head>
 <body class="dark-theme">
     <header>
@@ -16,7 +15,7 @@
             <h1>Gestão de Fornecedores</h1>
             <ul>
                 <li><a href="#">Início</a></li>
-                <li><a href="#">Fornecedores</a></li>
+                <li><a href="fornecedores.html">Fornecedores</a></li>
                 <li><a href="#">Relatórios</a></li>
                 <li><a href="#">Ajuda</a></li>
             </ul>
@@ -45,6 +44,12 @@
                 <label for="totalValue">Valor Total da Contratação:</label>
                 <input type="number" id="totalValue" name="totalValue" placeholder="Ex.: 50000" required>
 
+                <label for="status">Status:</label>
+                <select id="status" name="status" required>
+                    <option value="Ativo">Ativo</option>
+                    <option value="Inativo">Inativo</option>
+                </select>
+
                 <label for="additionalFiles">Arquivos Adicionais:</label>
                 <input type="file" id="additionalFiles" name="additionalFiles">
 
@@ -54,22 +59,10 @@
             <div id="error-message" role="alert" aria-live="assertive" class="hidden"></div>
         </section>
 
-        <section class="supplier-list">
-            <h2>Lista de Fornecedores</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nome do Fornecedor</th>
-                        <th>CNPJ</th>
-                        <th>Data de Início</th>
-                        <th>Valor</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody id="supplierTable">
-                </tbody>
-            </table>
+        <section class="view-suppliers">
+            <a href="fornecedores.html" class="view-suppliers-btn button">Visualizar Fornecedores</a>
         </section>
+        
     </main>
 
     <footer>
@@ -78,6 +71,6 @@
 
     <button id="theme-toggle">Alternar Fundo</button>
 
-    <script src="script.js"></script>
+    <script src="javascript.js"></script>
 </body>
 </html>
