@@ -184,12 +184,75 @@ button.view-btn:focus {
 
 footer {
     text-align: center;
-    padding: 20px;
+    padding: 10px;
     background-color: #2b2b2b;
     color: #e0e0e0;
-    margin-top: 20px;
+    margin-top: 5px;
 }
 
 .hidden {
     display: none;
+}
+
+
+
+/* Estilo para os botões da tabela de fornecedores */
+button.edit-btn {
+    background-color: #4CAF50; /* Verde */
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    border-radius: 5px;
+}
+
+button.edit-btn:hover,
+button.edit-btn:focus {
+    background-color: #45a049;
+    outline: none;
+}
+
+button.delete-btn {
+    background-color: #f44336; /* Vermelho */
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    margin-left: 5px; /* Espaço entre os botões */
+}
+
+button.delete-btn:hover,
+button.delete-btn:focus {
+    background-color: #e53935;
+    outline: none;
+}
+
+/* Estilo para os botões de ação */
+.button {
+    display: inline-block;
+    background-color: #E5C230; /* Oxum */
+    color: #1c1c1c;
+    border: none;
+    padding: 4px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 700; /* Aumenta a espessura da fonte */
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s;
+    margin: 0 auto; /* Centraliza o botão */
+}
+
+.view-suppliers {
+    text-align: center; /* Centraliza o conteúdo da seção */
+}
+
+.button:hover,
+.button:focus {
+    background-color: #C65E42;
+    outline: none;
 }
